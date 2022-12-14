@@ -486,7 +486,7 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    554
+                    552
                 </div>
                 
 
@@ -574,9 +574,8 @@ void main ()
 
     }
 
-}
-
-![](5.png)</code></pre><h1 id="微机原理区"><a href="#微机原理区" class="headerlink" title="微机原理区"></a>微机原理区</h1><h2 id="1-实现内存中三个数的加法运算"><a href="#1-实现内存中三个数的加法运算" class="headerlink" title="1. 实现内存中三个数的加法运算 "></a><b>1. 实现内存中三个数的加法运算 </b></h2><pre><code>DATA SEGMENT
+}    </code></pre><p><img src="5.png" alt="图示"></p>
+<h1 id="微机原理区"><a href="#微机原理区" class="headerlink" title="微机原理区"></a>微机原理区</h1><h2 id="1-实现内存中三个数的加法运算"><a href="#1-实现内存中三个数的加法运算" class="headerlink" title="1. 实现内存中三个数的加法运算 "></a><b>1. 实现内存中三个数的加法运算 </b></h2><pre><code>DATA SEGMENT
 M1 DB 34H,56H,78H ; 定义内存中的数据
 DATA ENDS
 CODE SEGMENT      ; 代码段
@@ -591,7 +590,7 @@ START:
    ADD BL,CL
    ADC BL,DL
 CODE ENDS
-   END START  </code></pre><h2 id="2、编写程序，实现把一个内存中-16-位的数的位-3-和位-7-置-1-后回写到原存储单元。"><a href="#2、编写程序，实现把一个内存中-16-位的数的位-3-和位-7-置-1-后回写到原存储单元。" class="headerlink" title="2、编写程序，实现把一个内存中 16 位的数的位 3 和位 7 置 1 后回写到原存储单元。"></a><b>2、编写程序，实现把一个内存中 16 位的数的位 3 和位 7 置 1 后回写到原存储单元。</b></h2><pre><code>DATA SEGMENT
+   END START  </code></pre><h2 id="2-编写程序，实现把一个内存中-16-位的数的位-3-和位-7-置-1-后回写到原存储单元。"><a href="#2-编写程序，实现把一个内存中-16-位的数的位-3-和位-7-置-1-后回写到原存储单元。" class="headerlink" title="2. 编写程序，实现把一个内存中 16 位的数的位 3 和位 7 置 1 后回写到原存储单元。"></a><b>2. 编写程序，实现把一个内存中 16 位的数的位 3 和位 7 置 1 后回写到原存储单元。</b></h2><pre><code>DATA SEGMENT
 M1  DW 1234H
 DATA ENDS
 CODE SEGMNET
