@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>编程例题（每天一道题，持续～ing）</title>
+      <link href="/2022/12/13/bian-cheng-li-ti/"/>
+      <url>/2022/12/13/bian-cheng-li-ti/</url>
+      
+        <content type="html"><![CDATA[<h1 id="C-语言区"><a href="#C-语言区" class="headerlink" title="C 语言区"></a>C 语言区</h1><h2 id="1-求两个整数的最大公约数和最小公倍数"><a href="#1-求两个整数的最大公约数和最小公倍数" class="headerlink" title="1. 求两个整数的最大公约数和最小公倍数 "></a><b>1. 求两个整数的最大公约数和最小公倍数 </b></h2><pre><code> 随便假设一个数 m 为 a 与 b 的最大公约数，则 a 与 b 的最小公倍数为 a*b/m。程序如下：/* 该程序是通过两数每次都模上最大数减一直到减到 1，如果之中有一个数 i 能符合被两数同时模上后为 0，则说明该数 i 是起的最大公约数 */①#include&lt;stdio.h&gt;void main (){    int a,b,i;    scanf (&quot;% d,% d&quot;,&amp;a,&amp;b);    if (a&gt;b)    {        i=b;        b=a;        a=i;    }   for (i=a;i&gt;=1;i--)     if (a% i==0&amp;&amp;b% i==0)     {       printf (&quot;它们的最大公约数为 % d\n&quot;,i);       break;      }} ②辗转相除法（求最大公约数）#include&lt;stdio.h&gt;void main (){    int p,r,a,b,temp;    printf (&quot;请输入两个正整数：&quot;);    scanf (&quot;% d,% d&quot;,&amp;a,&amp;b);    if (a&gt;b)    {        temp=b;        b=a;        a=temp;    }    p=b*a;//a 和 b 的乘积除以其最大公约数，就是最小公倍数。    while (a!=0)    {        r=b% a;        b=a;        a=r;    }    printf (&quot;它们的最大公约数为：% d\n&quot;,b);    printf (&quot;它们的最小公倍数为：% d\n&quot;,p/b);}</code></pre><h2 id="2-输出如下金字塔型数字"><a href="#2-输出如下金字塔型数字" class="headerlink" title="2. 输出如下金字塔型数字 "></a><b>2. 输出如下金字塔型数字 </b></h2><pre><code>#include&lt;stdio.h&gt;void main (){    int i,j,k;    for (i=1;i&lt;10;i++)    {         for (j=10;j&gt;i;j--)            printf (&quot; &quot;);// 输入空格         for (k=1;k&lt;=i;k++)            printf (&quot;% c&quot;,48+k);         for (k=i;k&gt;1;k--)            printf (&quot;% c&quot;,48+k-1);        printf (&quot;\n&quot;);            }}![](5.png)</code></pre><h1 id="微机原理区"><a href="#微机原理区" class="headerlink" title="微机原理区"></a>微机原理区</h1><h2 id="1-实现内存中三个数的加法运算"><a href="#1-实现内存中三个数的加法运算" class="headerlink" title="1. 实现内存中三个数的加法运算 "></a><b>1. 实现内存中三个数的加法运算 </b></h2><pre><code>DATA SEGMENTM1 DB 34H,56H,78H ; 定义内存中的数据DATA ENDSCODE SEGMENT      ; 代码段   ASSUME DS:DATA ; 把 DATA 这个段声明为数据段   ASSUME CS:CODESTART:   MOV AX,DATA   MOV DS,AX      ; 把 DATA 的段基值存入相应数据段寄存器 DS 中   LEA BL,[DI]   MOV CL,[DI+1]   MOV DL,[DI+2]   ADD BL,CL   ADC BL,DLCODE ENDS   END START  </code></pre><h2 id="2、编写程序，实现把一个内存中-16-位的数的位-3-和位-7-置-1-后回写到原存储单元。"><a href="#2、编写程序，实现把一个内存中-16-位的数的位-3-和位-7-置-1-后回写到原存储单元。" class="headerlink" title="2、编写程序，实现把一个内存中 16 位的数的位 3 和位 7 置 1 后回写到原存储单元。"></a><b>2、编写程序，实现把一个内存中 16 位的数的位 3 和位 7 置 1 后回写到原存储单元。</b></h2><pre><code>DATA SEGMENTM1  DW 1234HDATA ENDSCODE SEGMNET   ASSUME DS:DATA,CS:CODESTART:    MOV AX,DATA    MOV DS,AX    XOR AX,AX; 清零    MOV AX,M1    MOV CX,88H    OR  AX,CX    MOV M1,AXCODE ENDS    END START</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 简单的编程题 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 编程 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>看到的那些文字</title>
+      <link href="/2022/12/11/zhai-chao-wen-duan/"/>
+      <url>/2022/12/11/zhai-chao-wen-duan/</url>
+      
+        <content type="html"><![CDATA[<h2 id="看到的那些文字"><a href="#看到的那些文字" class="headerlink" title="看到的那些文字"></a>看到的那些文字</h2><p><b> 今天看到了一段话很有感触，索性在此留记～希望多些思考，做个简单的人，修身养性明德 </b>。</p><p>&emsp;“历史这个东西，很深奥，它记述了无数人的一辈子，他们不断的挣扎，想出头，想出名，有的是为了正义而奋斗，有的是为了私利而奋斗，这些人不论他怎么折腾，最后只在这本书里，一页纸翻过去，就能翻过无数人的一辈子，最后只能任由命运的车轮从自己身上碾过。<br><b> 以下《明朝那些事儿》（选段）</b><br>&emsp;’ 为什么看历史，很多人回答，以史为鉴。现在我来告诉你，以史为鉴，是不可能的。因为我发现，其实历史没有变化，技术变了，衣服变了，饮食变了，这都是外壳，里面什么都没变化，还是几千年前那一套，转来转去，该犯的错误还是要犯，该杀的人还是要杀，岳飞会死，袁崇焕会死、再过一千年，还是会死。所有发生的，是因为它有发生的理由，能超越历史的人，才叫以史为鉴，然而我们终究不能超越，因为我们自己的欲望和弱点所有的错误，我们都知道，然而终究改不掉。<br>&emsp; 顺便说下，能超越历史的人，还是有的，我们管这种人，叫做圣人。因为看得历史比较多、所以我这个人比较有历史感，当然，这是文明的说法，粗点讲，就是悲观。这并非开玩笑，我本人虽然经常幽默幽默，但对很多事情都很悲观，因为我经常看历史，不同的是，我看到的那些古文中，只有悲剧结局，无一例外。每一个人，他的飞黄腾达和他的没落，对他本人而言，是几十年，而对我而言，只有几页，前一页他很牛，后一页就怂了。王朝也是如此。真没意思，没意思透了。人生并非如某些人所说，很短暂，事实上，有时候，它很漫长，特别是对苦难中的人，漫长得想死。但我坚持，无论有多绝望，无论有多悲哀，每天早上起来，都要对自己说，这个世界很好，很强大。要坚信，你是一个勇敢的人。因为你还活着，活着，就要继续前进。’”</p><div align="middle"><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=513356352&auto=1&height=66"></iframe></div><p><img src="4.png" alt></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 摘抄 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 文字 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>win7 老电脑装上 win11</title>
+      <link href="/2022/12/10/win7-lao-dian-nao-zhuang-shang-win11/"/>
+      <url>/2022/12/10/win7-lao-dian-nao-zhuang-shang-win11/</url>
+      
+        <content type="html"><![CDATA[<h2 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h2><p>  我之前偶然间在吾爱论坛上一篇帖子 <a href="https://www.52pojie.cn/thread-1710488-1-1.html" title="出处：吾爱破解论坛" target="_blank" rel="noopener">强制升级 win11，一键跳过系统 TPM2.0 检测（老电脑升级 win11 22H2）</a>) ，之前只是刚好收藏了，然而今天正好老电脑需要重装系统，干脆就找出之前的文章装上 win11。但是可能有一点小问题，<b> 如果想更简单一点可直接参照我自己通过另一种方法写的第二点 </b>。</p><h2 id="第一"><a href="#第一" class="headerlink" title="第一"></a>第一</h2><p>&emsp; 该文章中有点问题好像是，因为我按照文章中操作，发现跳过系统监测 TPM2.0 该工具目前只支持到了 win11 的 21h2 版本，而正好当时该楼主时装的该版本所以没问题，但是其文章后面的 BT 链接给的确是最新版 - 22h2 版，当我下载完了之后安装时才发现了这一问题所以说要是按文章中来要么下载 21h2 版本，要么看看 GitHub 上原工具有没有更新，<br><a href="https://gist.github.com/AveYo/c74dc774a8fb81a332b5d65613187b15" target="_blank" rel="noopener">工具下载地址：</a>。</p><h2 id="第二"><a href="#第二" class="headerlink" title="第二"></a>第二</h2><p>&emsp; 我后来又从网上搜索发现其实不用这样写也可以，下载最新官网 ISO 包，直接解压 ISO 后，再从该文件内直接搜索 appraiserres.dll 文件，再从该位置处新建一个同名文件夹，而之前这个文件后缀 dll 就可以随便改成其他字母就可跳过检测电脑限制。（不过要注意的是搜索该文件是隐藏文件， 首先得把隐藏文件设置成可显示的否则搜索不到），之后一路默认操作即可。</p><h2 id="第三"><a href="#第三" class="headerlink" title="第三"></a>第三</h2><p>&emsp; 安装成功，欢迎使用 win11！</p><h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>&emsp; 这只是我安装时遇到的一些小问题和解决方法，希望能够帮到你！<br>&emsp; 要是有的不太清楚的，可以下边留言，我看到的话会回复。</p><p>   <img src="3.jpg" alt>      </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 装系统 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 老电脑装win11 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>做个温柔且坚强的人</title>
+      <link href="/2022/12/08/zuo-ge-wen-rou-qie-jian-qiang-de-ren/"/>
+      <url>/2022/12/08/zuo-ge-wen-rou-qie-jian-qiang-de-ren/</url>
+      
+        <content type="html"><![CDATA[<h1 id="今天的总算马马虎虎搞定了"><a href="#今天的总算马马虎虎搞定了" class="headerlink" title="今天的总算马马虎虎搞定了"></a>今天的总算马马虎虎搞定了</h1><pre><code>   花半开最美，情留白最浓，懂得给生命留白，亦是一种生活的智慧。</code></pre><p>   淡泊以明志，宁静以致远，懂得给心灵留白，方能在纷杂繁琐的世界，<br>   淡看得失，宠辱不惊，去意无留；懂得给感情留白，方能持久生香，留有余地，<br>   相互欣赏，拥有默契；懂得给生活留白，揽一份诗意，留一份淡定，多一份睿智，<br>   生命方能如诗如画。人心，远近相安，时光，浓淡相宜。有些风景要远观，才能美好；<br>   有些人情要淡然，才会久远，人生平淡更持久，留白方能生远，莲养心中，随遇而安，<br>   生命的最美不过是懂得的距离。</p><div align="middle"><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=569214126&auto=1&height=66"></iframe></div><p>  <a href="http://imgloc.com/i/fNnNE" target="_blank" rel="noopener"><img src="https://i.328888.xyz/2022/12/08/fNnNE.jpeg" alt="fNnNE.jpeg"></a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 随笔 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 分享 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>article title</title>
+      <link href="/2022/12/07/article-title-1/"/>
+      <url>/2022/12/07/article-title-1/</url>
+      
+        <content type="html"><![CDATA[<hr><h1 id="上林赋（节选）"><a href="#上林赋（节选）" class="headerlink" title="上林赋（节选）"></a>上林赋（节选）</h1><ul><li><p>司马相如  〔两汉〕<br>  亡是公听然而笑曰：“楚则失矣，而齐亦未为得也。夫使诸侯纳贡者，非为财币，所以述职也。封疆画界者，非为守御，所以禁淫也。今齐列为东藩，而外私肃慎，捐国逾限，越海而田，其于义固未可也。且二君之论，不务明君臣之义，正诸侯之礼，徒事争于游戏之乐，苑囿之大，欲以奢侈相胜，荒淫相越。此不可以扬名发誉，而适足以贬君自损也。且夫齐楚之事，又乌足道君未睹夫巨丽也，独不闻天子之上林乎？</p><p>  左苍梧，右西极；丹水更其南，紫渊径其北。终始灞浐，出入泾渭；酆镐潦潏，纡馀委蛇，经营乎其内。荡荡乎八川分流，相背而异态。东西南北，驰骛往来，出乎椒丘之阙，行乎洲淤之浦，经乎桂林之中，过乎泱漭之野。汩乎混流，顺阿而下，赴隘狭之口，触穹石，激堆埼，沸乎暴怒，汹涌澎湃。滭弗宓汩，逼侧泌瀄，横流逆折，转腾潎冽，滂濞沆溉。穹隆云桡，宛潬胶盭。逾波趋浥，涖涖下濑。批岩冲拥，奔扬滞沛。临坻注壑，瀺灂霣坠，沈沈隐隐，砰磅訇礚，潏潏淈淈，湁潗鼎沸。驰波跳沫，汩濦漂疾。悠远长怀，寂漻无声，肆乎永归。然后灏溔潢漾，安翔徐回，翯乎滈滈，东注太湖，衍溢陂池。</p></li></ul><div align="middle"><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=2003484837&auto=1&height=66"></iframe></div><p><img src="article-title-1.jpg" alt></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 文章 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 测试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/2022/12/07/hello-world/"/>
+      <url>/2022/12/07/hello-world/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+  
+  
+</search>
