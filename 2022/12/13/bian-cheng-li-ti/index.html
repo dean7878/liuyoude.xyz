@@ -3,7 +3,7 @@
 
 
 <head><meta name="generator" content="Hexo 3.9.0">
-    <meta charset="utf-8">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     <meta name="keywords" content="编程例题（每天一道题，持续～ing）,  有得 dean7878 Youde ">
     <meta name="baidu-site-verification" content="code-gU1Dq7afMm">
     <meta name="google-site-verification" content="7c2062fc9e26aabf">
@@ -69,11 +69,11 @@
     </script>
 
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 <body>
 
-    <header class="navbar-fixed">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
@@ -486,14 +486,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    554
+                    964
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    4 分
                 </div>
                 
                 
@@ -511,7 +511,7 @@
             <div id="articleContent">
                 <h1 id="一、C-语言区"><a href="#一、C-语言区" class="headerlink" title="一、C 语言区"></a>一、C 语言区</h1><h2 id="1-求两个整数的最大公约数和最小公倍数"><a href="#1-求两个整数的最大公约数和最小公倍数" class="headerlink" title="1. 求两个整数的最大公约数和最小公倍数 "></a><b>1. 求两个整数的最大公约数和最小公倍数 </b></h2><pre><code> 随便假设一个数 m 为 a 与 b 的最大公约数，则 a 与 b 的最小公倍数为 a*b/m。
 程序如下：
-/* 该程序是通过两数每次都模上最大数减一直到减到 1，如果之中有一个数 i 能符合被两数同时模上后为 0，则说明该数 i 是起的最大公约数 */
+/* 该程序是通过两数每次都模上最大数减一直到减到 1，如果之中有一个数 i 能符合被两数同时模上后为 0，则说明该数 i 是起的最大公约数 */  
 ①#include&lt;stdio.h&gt;
 void main ()
 {
@@ -555,7 +555,8 @@ void main ()
     }
     printf (&quot;它们的最大公约数为：% d\n&quot;,b);
     printf (&quot;它们的最小公倍数为：% d\n&quot;,p/b);
-}</code></pre><h2 id="2-输出如下金字塔型数字"><a href="#2-输出如下金字塔型数字" class="headerlink" title="2. 输出如下金字塔型数字 "></a><b>2. 输出如下金字塔型数字 </b></h2><pre><code>#include&lt;stdio.h&gt;
+}</code></pre><p>alert (‘Hello World!’); </p>
+<h2 id="2-输出如下金字塔型数字"><a href="#2-输出如下金字塔型数字" class="headerlink" title="2. 输出如下金字塔型数字 "></a><b>2. 输出如下金字塔型数字 </b></h2><pre><code>#include&lt;stdio.h&gt;
 void main ()
 {
     int i,j,k;
@@ -575,7 +576,60 @@ void main ()
     }
 
 }    </code></pre><p><img src="5.png" alt="图示"></p>
-<h1 id="二、微机原理区"><a href="#二、微机原理区" class="headerlink" title="二、微机原理区"></a>二、微机原理区</h1><h2 id="1-实现内存中三个数的加法运算"><a href="#1-实现内存中三个数的加法运算" class="headerlink" title="1. 实现内存中三个数的加法运算 "></a><b>1. 实现内存中三个数的加法运算 </b></h2><pre><code>DATA SEGMENT
+<h2 id="3-译密码（顺移四个字母依次，W-Z-顺移至-A-D）"><a href="#3-译密码（顺移四个字母依次，W-Z-顺移至-A-D）" class="headerlink" title="3. 译密码（顺移四个字母依次，W-Z 顺移至 A-D）"></a><b>3. 译密码（顺移四个字母依次，W-Z 顺移至 A-D）</b></h2><pre><code>①#include&lt;stdio.h&gt;
+void main ()
+{
+   char c;
+   c=getchar ();// 输入单字母
+   while (c!=&#39;\n&#39;)// 字母存在（循环）
+   {
+       if ((c&gt;=&#39;a&#39;&amp;&amp;c&lt;=&#39;z&#39;)||(c&gt;=&#39;A&#39;&amp;&amp;c&lt;=&#39;Z&#39;))
+       {
+           if ((c&gt;=&#39;w&#39;&amp;&amp;c&lt;=&#39;z&#39;)||(c&gt;=&#39;W&#39;&amp;&amp;c&lt;=&#39;Z&#39;))
+              c=c+4-26;
+            else
+              c=c+4;   
+       }
+       printf (&quot;% c&quot;,c);
+       c=getchar ();// 输入下一个
+
+   }   
+
+}
+②#include&lt;stdio.h&gt;
+void main ()
+{
+    char c;
+    while ((c=getchar ())!=&#39;\n&#39;)// 特别注意 (c=getchar ()) 是一个整体，是整体不等于 &#39;\n&#39;
+    {
+        if (c&gt;=&#39;A&#39;&amp;&amp;c&lt;=&#39;Z&#39;)
+            c=(c-&#39;A&#39;+4)%26+&#39;A&#39;;
+        else if (c&gt;=&#39;a&#39;&amp;&amp;c&lt;=&#39;z&#39;)
+            c=(c-&#39;a&#39;+4)%26+&#39;a&#39;;
+        printf (&quot;%&quot;,c);        
+
+    }
+
+}
+③#include&lt;stdio.h&gt;
+void main ()
+{
+   char c;
+   while ((c=getchar ())!=&#39;\n&#39;) 
+   {
+       if ((c&gt;=&#39;A&#39;&amp;&amp;c&lt;=&#39;Z&#39;)||(c&gt;=&#39;a&#39;&amp;&amp;c&lt;=&#39;z&#39;))
+       {
+           c=c+4;// 注意此处已经加上了 4
+           if (c&gt;=&#39;Z&#39;&amp;&amp;c&lt;=&#39;Z&#39;=4||c&gt;&#39;z&#39;)
+           {
+               c=c-26;
+           }
+       }
+       printf (&quot;% c&quot;,c);
+
+   }  
+
+}</code></pre><h1 id="二、微机原理区"><a href="#二、微机原理区" class="headerlink" title="二、微机原理区"></a>二、微机原理区</h1><h2 id="1-实现内存中三个数的加法运算"><a href="#1-实现内存中三个数的加法运算" class="headerlink" title="1. 实现内存中三个数的加法运算 "></a><b>1. 实现内存中三个数的加法运算 </b></h2><pre><code>DATA SEGMENT
 M1 DB 34H,56H,78H ; 定义内存中的数据
 DATA ENDS
 CODE SEGMENT      ; 代码段
@@ -604,7 +658,28 @@ START:
     OR  AX,CX
     MOV M1,AX
 CODE ENDS
-    END START</code></pre>
+    END START</code></pre><h2 id="3-在内存单元-TAB1-开始中有一个字符串，长度为-CN-CN-gt-5-。编写程序找出这个字符串是否有-‘C’-出现，若有，在-TAB2-中存-“Y”，否则在-TAB2-中存-“N”。"><a href="#3-在内存单元-TAB1-开始中有一个字符串，长度为-CN-CN-gt-5-。编写程序找出这个字符串是否有-‘C’-出现，若有，在-TAB2-中存-“Y”，否则在-TAB2-中存-“N”。" class="headerlink" title="3. 在内存单元 TAB1 开始中有一个字符串，长度为 CN (CN&gt;5)。编写程序找出这个字符串是否有 ‘C’ 出现，若有，在 TAB2 中存 “Y”，否则在 TAB2 中存 “N”。"></a><b>3. 在内存单元 TAB1 开始中有一个字符串，长度为 CN (CN&gt;5)。编写程序找出这个字符串是否有 ‘C’ 出现，若有，在 TAB2 中存 “Y”，否则在 TAB2 中存 “N”。</b></h2><pre><code>DATA SEGMENT
+TAB1 DB &#39;ASDWEDSAC&#39;
+TAB2 DB &#39;&#39;
+DATA ENDS
+CODE SEGMENT
+   ASSUME DS:DATA,CS:CODE
+START:
+    MOV AX,DATA
+    MOV DS,AX
+    LEA BX,TAB1
+    MOV CX,9
+LP: MOV AL,[BX]
+    INC BX
+    CMP AL,&#39;C&#39;; 不等于跳转
+    LOOPNZ LP
+    JZ LP2
+    MOV TAB2,&#39;N&#39;
+    JMP END
+LP2:MOV TAB2,&#39;Y&#39;
+END:HLT
+    CODE ENDS
+END START        </code></pre>
             </div>
             <hr />
 
@@ -820,9 +895,8 @@ CODE ENDS
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            留记丢掉幻想，准备斗争。—— 毛泽东#《沁园春・雪》
- 北国风光，千里冰封，万里雪飘。望长城内外，惟余莽莽；大河上下，顿失滔滔。山舞银蛇，原驰蜡象，欲与天公试比高。须晴日，看红装素裹，分外妖娆。
-江山如此多娇，引无数英雄竞折腰。惜秦皇汉武，
+                            《沁园春・雪》 北国风光，千里冰封，万里雪飘。望长城内外，惟余莽莽；大河上下，顿失滔滔。山舞银蛇，原驰蜡象，欲与天公试比高。须晴日，看红装素裹，分外妖娆。
+ 江山如此多娇，引无数英雄竞折腰。惜秦皇汉武，略输文采；唐宗宋祖，稍逊风骚。一代天骄
                         
                     </div>
                     <div class="publish-info">
@@ -1078,7 +1152,7 @@ conf: 'prod_c1823a4adbca97858586b1b985561f58'
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">2.4k</span>
+            <span class="white-color">2.9k</span>
             
 
             <br>
@@ -1258,7 +1332,7 @@ $(function () {
 
     <!-- 雪花特效 -->
     
-    <script type="text/javascript" src="/libs/others/snow.js"></script>
+    <script type="text/javascript" src="/libs/others/snow.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
 </body>
