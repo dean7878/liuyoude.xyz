@@ -331,7 +331,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -486,14 +486,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    961
+                    1.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    7 分
                 </div>
                 
                 
@@ -628,7 +628,50 @@ void main ()
 
    }  
 
-}</code></pre><h1 id="二、微机原理区"><a href="#二、微机原理区" class="headerlink" title="二、微机原理区"></a>二、微机原理区</h1><h2 id="1-实现内存中三个数的加法运算"><a href="#1-实现内存中三个数的加法运算" class="headerlink" title="1. 实现内存中三个数的加法运算 "></a><b>1. 实现内存中三个数的加法运算 </b></h2><pre><code>DATA SEGMENT
+}</code></pre><h2 id="4-字符统计，输入一行字符，分别统计出其中的英文字母、空格、数字和其它字符的个数。"><a href="#4-字符统计，输入一行字符，分别统计出其中的英文字母、空格、数字和其它字符的个数。" class="headerlink" title="4. 字符统计，输入一行字符，分别统计出其中的英文字母、空格、数字和其它字符的个数。"></a><b>4. 字符统计，输入一行字符，分别统计出其中的英文字母、空格、数字和其它字符的个数。</b></h2><pre><code>①#include&lt;stdio.h&gt;
+void main ()
+{
+    int z,k,s,q;
+    char ch;
+    z=k=s=q=0;
+    ch=getchar ();
+    while (ch=!&#39;\n&#39;)
+    {
+        if (ch&gt;=&#39;a&#39;&amp;&amp;ch&lt;=&#39;z&#39;||ch&gt;=&#39;A&#39;&amp;&amp;ch&lt;=&#39;Z&#39;)
+          z++;
+        else if (ch==&#39; &#39;)
+          k++;
+        else if (ch&gt;=&#39;0&#39;&amp;&amp;ch&lt;=&#39;9&#39;)
+          s++;
+        else q++;
+        ch=getchar ();      
+    }
+    printf (&quot;字母：% d\n，空格：% d\n，数字：% d\n，其它：% d\n&quot;,z,k,s,q);
+}
+②for (ch=getchar ();ch!=&#39;\n&#39;;)// 另一种检测方法
+  {
+    if (ch&gt;=&#39;a&#39;&amp;&amp;ch&lt;=&#39;z&#39;||ch&gt;=&#39;A&#39;&amp;&amp;ch&lt;=&#39;Z&#39;)
+    {
+           z++;
+        else if (ch==&#39; &#39;)
+           k++;
+        else if (ch&gt;=&#39;0&#39;&amp;&amp;ch&lt;=&#39;9&#39;)
+           s++;
+        else q++;
+        ch=getchar ();   
+    }   
+  }
+③while (   (ch=getchar ())   !=&#39;\n&#39;) //&quot;!=&quot; 优先级大于 &quot;=&quot;
+{
+    if (ch&gt;=&#39;a&#39;&amp;&amp;ch&lt;=&#39;z&#39;||ch&gt;=&#39;A&#39;&amp;&amp;ch&lt;=&#39;Z&#39;)
+       z++;
+    else if (ch==&#39; &#39;)
+       k++;
+    else if (ch&gt;=&#39;0&#39;&amp;&amp;ch&lt;=&#39;9&#39;)
+       s++;
+    else q++;         
+
+} </code></pre><h1 id="二、微机原理区"><a href="#二、微机原理区" class="headerlink" title="二、微机原理区"></a>二、微机原理区</h1><h2 id="1-实现内存中三个数的加法运算"><a href="#1-实现内存中三个数的加法运算" class="headerlink" title="1. 实现内存中三个数的加法运算 "></a><b>1. 实现内存中三个数的加法运算 </b></h2><pre><code>DATA SEGMENT
 M1 DB 34H,56H,78H ; 定义内存中的数据
 DATA ENDS
 CODE SEGMENT      ; 代码段
@@ -678,7 +721,39 @@ LP: MOV AL,[BX]
 LP2:MOV TAB2,&#39;Y&#39;
 END:HLT
     CODE ENDS
-END START        </code></pre>
+END START        </code></pre><h2 id="4-试编制程序段实现求-X-Y-×-X-Y-并将结果存入内存。其中-X-和-Y-是内存数据段-DATA-中字节单元无符号数。"><a href="#4-试编制程序段实现求-X-Y-×-X-Y-并将结果存入内存。其中-X-和-Y-是内存数据段-DATA-中字节单元无符号数。" class="headerlink" title="4. 试编制程序段实现求 | X+Y|×|X-Y | 并将结果存入内存。其中 X 和 Y 是内存数据段 DATA 中字节单元无符号数。"></a><b>4. 试编制程序段实现求 | X+Y|×|X-Y | 并将结果存入内存。其中 X 和 Y 是内存数据段 DATA 中字节单元无符号数。</b></h2><pre><code>DATA SEGMENT
+    M1 DB 11H;X
+    M2 DB 22H;Y
+    M3 DW 1122H;Z
+DATA ENDS
+CODE SEGMENT
+    ASSUME CS:DATA,DS:DATA
+START:
+    MOV AX,DATA
+    MOV DS,AX
+
+    LEA SI,M1
+    LEA DI,M2
+
+    MOV AL,[SI]
+    MOV BL,[DI]
+    ADD AL,BL
+    MOV CL,AL;|X+Y|
+    SUB AL,BL; 前面加过了再减去 bl
+    CMP AL,BL
+    JAE JUMP1
+    JB  JUMP2
+JUMP1: SUB AL,BL;|X-Y|
+       MUL CL
+       MOV M3,AX
+       JMP END
+JUMP2: SUB BL,AL;|Y-X|
+       MUL CL
+       MOV M3,AX
+END:   MOV AH,4CH
+       INT 21H
+    CODE ENDS
+END START             </code></pre>
             </div>
             <hr />
 
@@ -886,7 +961,7 @@ END START        </code></pre>
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="考试倒计时 100day">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="考试倒计时 100day">
                         
                         <span class="card-title">考试倒计时 100day</span>
                     </div>
@@ -929,7 +1004,7 @@ END START        </code></pre>
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="看到的那些文字">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="看到的那些文字">
                         
                         <span class="card-title">看到的那些文字</span>
                     </div>
@@ -1151,7 +1226,7 @@ conf: 'prod_c1823a4adbca97858586b1b985561f58'
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">2.9k</span>
+            <span class="white-color">3.3k</span>
             
 
             <br>
