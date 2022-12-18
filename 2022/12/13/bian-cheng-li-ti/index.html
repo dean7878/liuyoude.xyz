@@ -331,7 +331,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -486,14 +486,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    8 分
                 </div>
                 
                 
@@ -671,7 +671,41 @@ void main ()
        s++;
     else q++;         
 
-} </code></pre><h1 id="二、微机原理区"><a href="#二、微机原理区" class="headerlink" title="二、微机原理区"></a>二、微机原理区</h1><h2 id="1-实现内存中三个数的加法运算"><a href="#1-实现内存中三个数的加法运算" class="headerlink" title="1. 实现内存中三个数的加法运算 "></a><b>1. 实现内存中三个数的加法运算 </b></h2><pre><code>DATA SEGMENT
+} </code></pre><h2 id="5-编程输出-n-m-中（0-lt-n-lt-m）能被-3-整除，且至少有一个数字是-5-的所以有数。"><a href="#5-编程输出-n-m-中（0-lt-n-lt-m）能被-3-整除，且至少有一个数字是-5-的所以有数。" class="headerlink" title="5. 编程输出 n-m 中（0&lt;n&lt;m）能被 3 整除，且至少有一个数字是 5 的所以有数。"></a><b>5. 编程输出 n-m 中（0&lt;n&lt;m）能被 3 整除，且至少有一个数字是 5 的所以有数。</b></h2><pre><code>#include&lt;stdio.h&gt;
+void main ()
+{
+    long i,m,x,t,n;
+    int z;
+    scanf (&quot;% ld% ld&quot;,&amp;n,&amp;m);
+    if (n&gt;m)
+    {
+        z=n;
+        n=m;
+        m=z;
+    }
+    if (n==m)
+    {
+      printf (&quot;请重新输入：&quot;);
+      scanf (&quot;% ld% ld&quot;,&amp;n,&amp;m);
+    }
+    for (i=n;i&lt;=m;i++)
+    {
+        if (i%3==0)
+        {
+            x=i;
+            while (x)
+            {
+                t=x%10;
+                if (t==5)
+                {
+                   printf (&quot;% ld\n&quot;,i)
+                   break;
+                }
+                x=x/10;
+            }
+        }
+    } 
+}    </code></pre><h1 id="二、微机原理区"><a href="#二、微机原理区" class="headerlink" title="二、微机原理区"></a>二、微机原理区</h1><h2 id="1-实现内存中三个数的加法运算"><a href="#1-实现内存中三个数的加法运算" class="headerlink" title="1. 实现内存中三个数的加法运算 "></a><b>1. 实现内存中三个数的加法运算 </b></h2><pre><code>DATA SEGMENT
 M1 DB 34H,56H,78H ; 定义内存中的数据
 DATA ENDS
 CODE SEGMENT      ; 代码段
@@ -753,7 +787,32 @@ JUMP2: SUB BL,AL;|Y-X|
 END:   MOV AH,4CH
        INT 21H
     CODE ENDS
-END START             </code></pre>
+END START             </code></pre><h2 id="5-编制程序实现将首地址为-STR、长度为-10-的字符串顺序颠倒，例如原串为-abcdefghij，变换后为-jihgfedcba。"><a href="#5-编制程序实现将首地址为-STR、长度为-10-的字符串顺序颠倒，例如原串为-abcdefghij，变换后为-jihgfedcba。" class="headerlink" title="5. 编制程序实现将首地址为 STR、长度为 10 的字符串顺序颠倒，例如原串为 abcdefghij，变换后为 jihgfedcba。"></a><b>5. 编制程序实现将首地址为 STR、长度为 10 的字符串顺序颠倒，例如原串为 abcdefghij，变换后为 jihgfedcba。</b></h2><pre><code>DATA SEGMENT
+==STR DB &#39;ABCDEFGHIJ&#39;== 
+DATA ENDS
+CODE SEGMENT
+    ASSUME CS:CODE,DS:DATA
+START:
+    MOV AX,DATA
+    MOV DS,AX
+
+    LEA SI,STR
+    LEA DI,STR+9
+    MOV CX,5
+    MOV AX,0
+NEXT: MOV AL,[SI]
+      MOV BL,[DI]
+      MOV [SI],BL
+      MOV [DI],AL
+      INC SI
+      DEC DI
+      DEC CX
+      JNZ NEXT
+
+      MOV AH,4CH
+      INT 21H
+    CODE ENDS
+END START                     </code></pre>
             </div>
             <hr />
 
@@ -961,7 +1020,7 @@ END START             </code></pre>
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="考试倒计时 100day">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="考试倒计时 100day">
                         
                         <span class="card-title">考试倒计时 100day</span>
                     </div>
@@ -1004,7 +1063,7 @@ END START             </code></pre>
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="看到的那些文字">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="看到的那些文字">
                         
                         <span class="card-title">看到的那些文字</span>
                     </div>
@@ -1226,7 +1285,7 @@ conf: 'prod_c1823a4adbca97858586b1b985561f58'
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">3.3k</span>
+            <span class="white-color">3.5k</span>
             
 
             <br>
