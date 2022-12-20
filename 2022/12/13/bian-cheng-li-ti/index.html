@@ -331,7 +331,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -486,14 +486,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    11 分
                 </div>
                 
                 
@@ -705,7 +705,26 @@ void main ()
             }
         }
     } 
-}    </code></pre><h1 id="二、微机原理区"><a href="#二、微机原理区" class="headerlink" title="二、微机原理区"></a>二、微机原理区</h1><h2 id="1-实现内存中三个数的加法运算"><a href="#1-实现内存中三个数的加法运算" class="headerlink" title="1. 实现内存中三个数的加法运算 "></a><b>1. 实现内存中三个数的加法运算 </b></h2><pre><code>DATA SEGMENT
+} </code></pre><h2 id="6-穷举法-编程求-1000-以内的完数-完数就是其真因子的和等于其本身的数-。"><a href="#6-穷举法-编程求-1000-以内的完数-完数就是其真因子的和等于其本身的数-。" class="headerlink" title="6.(穷举法) 编程求 1000 以内的完数 (完数就是其真因子的和等于其本身的数)。"></a><b>6.(穷举法) 编程求 1000 以内的完数 (完数就是其真因子的和等于其本身的数)。</b></h2><pre><code>#include&lt;stdio.h&gt;
+void main ()
+{
+   int i,j,s;
+   for (i=1;i&lt;=1000;i++)
+   {
+       s=0;
+       for (j=1;j&lt;i;j++)
+       {
+           if (i% j==0)
+           {
+               s+=j;
+           } 
+       }
+       if (s==j)
+           {
+               printf (&quot;% d\n&quot;,i);
+           }
+   } 
+}       </code></pre><h1 id="二、微机原理区"><a href="#二、微机原理区" class="headerlink" title="二、微机原理区"></a>二、微机原理区</h1><h2 id="1-实现内存中三个数的加法运算"><a href="#1-实现内存中三个数的加法运算" class="headerlink" title="1. 实现内存中三个数的加法运算 "></a><b>1. 实现内存中三个数的加法运算 </b></h2><pre><code>DATA SEGMENT
 M1 DB 34H,56H,78H ; 定义内存中的数据
 DATA ENDS
 CODE SEGMENT      ; 代码段
@@ -788,7 +807,7 @@ END:   MOV AH,4CH
        INT 21H
     CODE ENDS
 END START             </code></pre><h2 id="5-编制程序实现将首地址为-STR、长度为-10-的字符串顺序颠倒，例如原串为-abcdefghij，变换后为-jihgfedcba。"><a href="#5-编制程序实现将首地址为-STR、长度为-10-的字符串顺序颠倒，例如原串为-abcdefghij，变换后为-jihgfedcba。" class="headerlink" title="5. 编制程序实现将首地址为 STR、长度为 10 的字符串顺序颠倒，例如原串为 abcdefghij，变换后为 jihgfedcba。"></a><b>5. 编制程序实现将首地址为 STR、长度为 10 的字符串顺序颠倒，例如原串为 abcdefghij，变换后为 jihgfedcba。</b></h2><pre><code>DATA SEGMENT
-==STR DB &#39;ABCDEFGHIJ&#39;== 
+STR DB &#39;ABCDEFGHIJ&#39;
 DATA ENDS
 CODE SEGMENT
     ASSUME CS:CODE,DS:DATA
@@ -812,7 +831,119 @@ NEXT: MOV AL,[SI]
       MOV AH,4CH
       INT 21H
     CODE ENDS
-END START                     </code></pre>
+END START</code></pre><h2 id="6-试编制程序段实现求-X-Y-×-X-Y-并将结果存入内存。其中-X-和-Y-是键盘输入数据。-假设输入两个两位数"><a href="#6-试编制程序段实现求-X-Y-×-X-Y-并将结果存入内存。其中-X-和-Y-是键盘输入数据。-假设输入两个两位数" class="headerlink" title="6. 试编制程序段实现求 | X+Y|×|X-Y | 并将结果存入内存。其中 X 和 Y 是键盘输入数据。(假设输入两个两位数)"></a><b>6. 试编制程序段实现求 | X+Y|×|X-Y | 并将结果存入内存。其中 X 和 Y 是键盘输入数据。(假设输入两个两位数)</b></h2><pre><code>DATA SEGMENT
+    M1  DB  &#39;X:$&#39;
+    M2  DB  &#39;Y:$&#39;
+    ENT DB  0AH,0DH,&#39;$&#39;
+    X   DB  5,0,5 DUP (0),&#39;$&#39;
+    Y   DB  5,0,5 DUP (0),&#39;$&#39;
+    Z   DW  0
+DATA ENDS
+CODE SEGMENT
+    ASSUME  CS:CODE,DS:DATA
+START:
+     MOV AX,DATA
+     MOV DS,AX
+
+     LEA DX,M1
+     MOV AH,9
+     INT 21H
+
+     MOV DX,OFFSET X
+     MOV AH,10
+     INT 21H
+
+     LEA DX,ENT
+     MOV AH,9
+     INT 21H
+
+     LEA DX,M2
+     MOV AH,9
+     INT 21H
+
+     MOV DX,OFFSET Y
+     MOV AH,10
+     INT 21H
+
+     LEA DX,ENT
+     MOV AH,9
+     INT 21H 
+
+     MOV DI,OFFSET X+2
+     MOV AL,[DI]
+     MOV CL,4
+     SHL AL,CL
+     MOV BL,[DI+1]
+     AND BL,0FH
+     ADD AL,BL
+     MOV DX,0
+     AND AX,0FFH
+     MOV DX,AX         ;X
+     AND AL,0F0H
+     MOV CX,AX
+     SHR CX,1
+     SHR CX,1
+     SHR CX,1
+     SHR CX,1
+     DEC CX
+     SUB DX,6 
+
+     CMP DX,14H        ; 自动判断循环几位
+     JB NEXT
+  J1:SUB DX,6 
+     LOOP J1
+
+
+NEXT: MOV SI,OFFSET Y+2
+     MOV AL,[SI]
+     MOV CL,4
+     SHL AL,CL
+     MOV BL,[SI+1]
+     AND BL,0FH
+     ADD AL,BL
+     AND AX,0FFH         ;Y 
+     MOV BL,AL
+     AND BL,0F0H
+     MOV CL,BL
+     SHR CX,1
+     SHR CX,1
+     SHR CX,1
+     SHR CX,1
+     DEC CL
+     SUB AX,6
+
+     CMP AX,14H
+     JB  NEXT1          ; 自动判断循环几位
+   J2:SUB AX,6  
+     LOOP J2 
+
+NEXT1: ADD DX,AX
+     MOV BX,0
+     MOV BX,DX ;|X+Y|
+     SUB DX,AX
+
+     CMP DX,AX
+     JA L1
+     SUB AX,DX;Y&gt;X 
+     AND AX,0FFH
+     MOV DH,0
+     MUL BX
+
+     MOV WORD PTR Z,AX
+     MOV WORD PTR Z+16,DX
+     JMP END
+  L1:SUB DX,AX ;X&gt;Y 
+     AND AX,0FFH
+     MOV AX,DX
+     MOV DH,0
+     MUL BX
+     MOV WORD PTR Z,AX
+     MOV WORD PTR Z+16,DX
+  END:
+       MOV AH,4CH
+       INT 21H
+   CODE ENDS
+END START</code></pre>
             </div>
             <hr />
 
@@ -1020,7 +1151,7 @@ END START                     </code></pre>
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="考试倒计时 100day">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="考试倒计时 100day">
                         
                         <span class="card-title">考试倒计时 100day</span>
                     </div>
@@ -1063,7 +1194,7 @@ END START                     </code></pre>
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="看到的那些文字">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="看到的那些文字">
                         
                         <span class="card-title">看到的那些文字</span>
                     </div>
@@ -1285,7 +1416,7 @@ conf: 'prod_c1823a4adbca97858586b1b985561f58'
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">3.5k</span>
+            <span class="white-color">3.9k</span>
             
 
             <br>
