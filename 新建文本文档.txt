@@ -1,0 +1,14 @@
+git config --global user.name "deanzibu"
+git config --global user.email "dean957188158@gmail.com"
+
+##
+ssh-keygen -t rsa -C "dean957188158@gmail.com"
+#####
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC9CVU26gpU7LrdgvwkNILhmWkvOZY0SfJuccS0uR8aTLSttgLnAh8y4tYkg9zAAMS/svgtf1KjGKS2y/znh8m4Kdoh/4+euQI+6Cy5ddRiNJnO8f3Rr0ZfpdE7Cv/JqHJIE2wZqJO47k0Bmx1GC2je5Aa9uSBsZDKFG2QQ9l49xGcSnbFtYS9eJd2e1YNRdNpmU0ncFuwdSqSnt598LhpihKZTeqjHypOxOYUreXiYN+H2fKgPMDaPSj9VJRN/W65gAen+um6W3nOxoeXLs+BTETj1A4NDVaM4eqJ/eS2ofZ++QMRc8VUGPFL+DTOi8qOZhxmdgV9QZP9TMmDqwj52r648vlHNwuZYFK12zOcyuGD6abA5yzcsIrGXvAt2IezZB4wUUNFghLwSfKYgR/nM/Ww7GRGOOJa9qiVCP48OKT+bncRHm+ew4XRd0roR0yh08TLSQ0uqlkNuNJ6MrsA5IPr0KAB/LomPInEcAWnfQ/QvSg3jHk0ZJCiIqg50o2k= dean957188158@gmail.com
+#######
+The authenticity of host 'github.com (20.205.243.166)' can't be established.
+ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])?
+Host key verification failed.
+
